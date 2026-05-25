@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://gcjo6mfioxh0"]
+
+[ext_resource type="Script" uid="uid://bw73tmpy4j58s" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
+[ext_resource type="Script" uid="uid://bfohbkd45x4q0" path="res://scenes/button.gd" id="1_u7n8c"]
+
+[node name="UI" type="CanvasLayer" unique_id=1503707486]
+script = ExtResource("1_f5cxw")
+
+[node name="Button" type="Button" parent="." unique_id=1231803907]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 82.0
+offset_top = 118.0
+offset_right = 182.0
+offset_bottom = 218.0
+script = ExtResource("1_u7n8c")
