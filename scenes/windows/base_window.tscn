@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ratx4sg5vy68"]
+
+[node name="BaseWindow" type="Window" unique_id=2074263248]
+transparent_bg = true
+oversampling_override = 1.0
+transient = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://yo2qijro5q0j"]
 
 [ext_resource type="Script" uid="uid://chndjppaxhpbd" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bp1wdfq4jn3od" path="res://scenes/windows/camera/camera_window.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node" unique_id=873014971]
 script = ExtResource("1_sugp2")
+
+[node name="CameraWindow" parent="." unique_id=2074263248 instance=ExtResource("2_0wfyh")]
