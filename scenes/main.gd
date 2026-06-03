@@ -14,11 +14,8 @@ func _ready():
 	main_window = get_window()
 	_set_main_window_invis()
 	_set_window_size()
-	
-	main_window.set_canvas_cull_mask_bit(player_visibility_layer, true)
-	main_window.set_canvas_cull_mask_bit(world_visibility_layer, false)
-	camera_window.set_canvas_cull_mask_bit(player_visibility_layer, false)
-	camera_window.set_canvas_cull_mask_bit(world_visibility_layer, true)
+	_set_culling_masks()
+	_set_culling_masks()
 	
 	camera_window.world_2d = main_window.world_2d
 
@@ -51,3 +48,10 @@ func _process(delta):
 
 func get_window_pos_from_camera()->Vector2i:
 	return (Vector2i(muni_camera.global_position + muni_camera.offset) - object_size / 2) * Vector2i(muni_camera.zoom)
+
+
+func _set_culling_masks()->void:
+	main_window.set_canvas_cull_mask_bit(player_visibility_layer, true)
+	main_window.set_canvas_cull_mask_bit(world_visibility_layer, false)
+	camera_window.set_canvas_cull_mask_bit(player_visibility_layer, false)
+	camera_window.set_canvas_cull_mask_bit(world_visibility_layer, true)

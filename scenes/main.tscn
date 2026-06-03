@@ -10,6 +10,7 @@ script = ExtResource("1_sugp2")
 muni_camera = NodePath("World/Muni/MuniCamera")
 
 [node name="CameraWindow" parent="." unique_id=2074263248 node_paths=PackedStringArray("camera") instance=ExtResource("2_0wfyh")]
+canvas_item_default_texture_filter = 1
 size = Vector2i(1000, 1000)
 camera = NodePath("WorldCamera")
 
