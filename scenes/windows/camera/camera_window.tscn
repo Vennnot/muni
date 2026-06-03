@@ -5,5 +5,3 @@
 
 [node name="CameraWindow" unique_id=2074263248 instance=ExtResource("1_lpvdb")]
 script = ExtResource("2_t58on")
-
-[node name="Camera" type="Camera2D" parent="." index="0" unique_id=808447485]

@@ -35,6 +35,7 @@ window/per_pixel_transparency/allowed=true
 [file_customization]
 
 folder_colors={
+"res://assets/": "purple",
 "res://scenes/": "green"
 }
 
@@ -46,11 +47,17 @@ LMB={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="world"
+2d_render/layer_2="player"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 viewport/transparent_background=true

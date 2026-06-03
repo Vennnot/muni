@@ -1,7 +1,7 @@
 class_name CameraWindow
 extends Window
 
-@onready var camera: Camera2D = $Camera
+@export var camera: Camera2D
 
 var last_position: = Vector2i.ZERO
 var velocity: = Vector2i.ZERO
@@ -18,4 +18,4 @@ func _process(_delta: float) -> void:
 	camera.position = get_camera_pos_from_window()
 
 func get_camera_pos_from_window()->Vector2i:
-	return position + velocity
+	return (position + velocity) / Vector2i(camera.zoom)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bb6pw5u1unwoy"]
+
+[ext_resource type="Script" uid="uid://68uurxdww6un" path="res://scenes/world/muni/muni.gd" id="1_lpbwq"]
+[ext_resource type="Texture2D" uid="uid://cblaltd6km3f3" path="res://assets/kenney/tile_0005.png" id="2_01g64"]
+
+[node name="Muni" type="Node2D" unique_id=126529545]
+visibility_layer = 2
+z_index = 1
+script = ExtResource("1_lpbwq")
+
+[node name="Tile0005" type="Sprite2D" parent="." unique_id=710081397]
+visibility_layer = 2
+scale = Vector2(4, 4)
+texture = ExtResource("2_01g64")

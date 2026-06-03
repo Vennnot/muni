@@ -2,8 +2,22 @@
 
 [ext_resource type="Script" uid="uid://chndjppaxhpbd" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bp1wdfq4jn3od" path="res://scenes/windows/camera/camera_window.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dc38vkwwx70q1" path="res://scenes/world/world.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bb6pw5u1unwoy" path="res://scenes/world/muni/muni.tscn" id="4_jyhfs"]
 
-[node name="Main" type="Node" unique_id=873014971]
+[node name="Main" type="Node" unique_id=873014971 node_paths=PackedStringArray("muni_camera")]
 script = ExtResource("1_sugp2")
+muni_camera = NodePath("World/Muni/MuniCamera")
 
-[node name="CameraWindow" parent="." unique_id=2074263248 instance=ExtResource("2_0wfyh")]
+[node name="CameraWindow" parent="." unique_id=2074263248 node_paths=PackedStringArray("camera") instance=ExtResource("2_0wfyh")]
+size = Vector2i(1000, 1000)
+camera = NodePath("WorldCamera")
+
+[node name="WorldCamera" type="Camera2D" parent="CameraWindow" unique_id=632821052]
+
+[node name="World" parent="." unique_id=268146803 instance=ExtResource("3_sugp2")]
+
+[node name="Muni" parent="World" unique_id=126529545 instance=ExtResource("4_jyhfs")]
+
+[node name="MuniCamera" type="Camera2D" parent="World/Muni" unique_id=978235294]
+visibility_layer = 2

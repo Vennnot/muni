@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dc38vkwwx70q1"]
+
+[node name="World" type="Node2D" unique_id=268146803]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1647325195]
+custom_minimum_size = Vector2(10000, 10000)
+offset_right = 40.0
+offset_bottom = 40.0
