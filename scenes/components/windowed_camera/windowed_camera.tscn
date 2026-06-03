@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cqdd86fsdgij0"]
+
+[ext_resource type="Script" uid="uid://mmche2y8je1e" path="res://scenes/components/windowed_camera/windowed_camera.gd" id="1_l7cpx"]
+
+[node name="WindowedCamera" type="Camera2D" unique_id=621360633]
+script = ExtResource("1_l7cpx")

@@ -1,53 +1,34 @@
 class_name Main
 extends Node
 
-@onready var camera_window: CameraWindow = $CameraWindow
-@export var muni_camera : Camera2D
-var world_camera : Camera2D
-var main_window: Window
+const CAMERA_WINDOW :=preload("uid://bp1wdfq4jn3od")
+const WORLD :=preload("uid://dc38vkwwx70q1")
 
 @export_range(0, 19) var player_visibility_layer: int = 2
 @export_range(0, 19) var world_visibility_layer: int = 0
-@export var object_size := Vector2i(64, 64)
+
+var main_window: Window
+var camera_window: CameraWindow
+var world : World
 
 func _ready():
-	main_window = get_window()
+	set_physics_process(false)
 	_set_main_window_invis()
-	_set_window_size()
+	_spawn_camera_window()
+	_spawn_world()
 	_set_culling_masks()
-	_set_culling_masks()
-	
-	camera_window.world_2d = main_window.world_2d
-
-
-func _set_window_size()->void:
-	main_window.min_size = object_size
-	main_window.size = main_window.min_size
-	main_window.min_size = object_size * Vector2i(muni_camera.zoom)
-	main_window.size = main_window.min_size
+	set_physics_process(true)
 
 
 func _set_main_window_invis()->void:
-	# Enable per-pixel transparency, required for transparent windows but has a performance cost
-	# Can also break on some systems
-	ProjectSettings.set_setting("display/window/per_pixel_transparency/allowed", true)
-	# Set the window settings - most of them can be set in the project settings
-	main_window.borderless = true		# Hide the edges of the window
-	main_window.unresizable = true		# Prevent resizing the window
-	main_window.always_on_top = true	# Force the window always be on top of the screen
-	main_window.gui_embed_subwindows = false # Make subwindows actual system windows <- VERY IMPORTANT
-	main_window.transparent = true		# Allow the window to be transparent
+	main_window = get_window()
+	main_window.borderless = true
+	main_window.unresizable = true
+	main_window.always_on_top = true
+	main_window.gui_embed_subwindows = false
+	main_window.transparent = true
 	# Settings that cannot be set in project settings
 	main_window.transparent_bg = true	# Make the window's background transparent
-
-
-func _process(delta):
-	# Update the main window's position
-	main_window.position = get_window_pos_from_camera()
-
-
-func get_window_pos_from_camera()->Vector2i:
-	return (Vector2i(muni_camera.global_position + muni_camera.offset) - object_size / 2) * Vector2i(muni_camera.zoom)
 
 
 func _set_culling_masks()->void:
@@ -55,3 +36,15 @@ func _set_culling_masks()->void:
 	main_window.set_canvas_cull_mask_bit(world_visibility_layer, false)
 	camera_window.set_canvas_cull_mask_bit(player_visibility_layer, false)
 	camera_window.set_canvas_cull_mask_bit(world_visibility_layer, true)
+
+
+func _spawn_camera_window()->void:
+	camera_window = CAMERA_WINDOW.instantiate()
+	add_child(camera_window)
+	camera_window.world_2d = main_window.world_2d
+
+
+func _spawn_world()->void:
+	world = WORLD.instantiate()
+	add_child(world)
+	world.muni_camera.window = main_window

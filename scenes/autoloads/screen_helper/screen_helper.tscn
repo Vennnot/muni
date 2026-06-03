@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8cvmhhnf3n0s"]
+
+[ext_resource type="Script" uid="uid://0k1oi6xc3lym" path="res://scenes/autoloads/screen_helper/screen_helper.gd" id="1_yjyyn"]
+
+[node name="ScreenHelper" type="Node" unique_id=1978020187]
+script = ExtResource("1_yjyyn")

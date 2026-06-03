@@ -1,8 +1,56 @@
 [gd_scene format=3 uid="uid://dc38vkwwx70q1"]
 
-[node name="World" type="Node2D" unique_id=268146803]
+[ext_resource type="Script" uid="uid://dv5mvvixgiwnn" path="res://scenes/world/world.gd" id="1_sl2e5"]
+[ext_resource type="PackedScene" uid="uid://bb6pw5u1unwoy" path="res://scenes/world/muni/muni.tscn" id="2_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://cqdd86fsdgij0" path="res://scenes/components/windowed_camera/windowed_camera.tscn" id="3_1fp7r"]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1647325195]
-custom_minimum_size = Vector2(10000, 10000)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="World" type="Node2D" unique_id=268146803]
+visibility_layer = 3
+script = ExtResource("1_sl2e5")
+
+[node name="DebugBorders" type="Node2D" parent="." unique_id=58340422]
+
+[node name="WorldRect" type="ColorRect" parent="DebugBorders" unique_id=1647325195]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 360)
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(1, 0.8901961, 0.99215686, 0.22352941)
+
+[node name="TopBorder" type="ColorRect" parent="DebugBorders" unique_id=1053867908]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 10)
+offset_top = -10.0
+offset_right = 640.0
+color = Color(1, 0.22352941, 1, 1)
+
+[node name="LeftBorder" type="ColorRect" parent="DebugBorders" unique_id=958008591]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 360)
+offset_left = -10.0
+offset_bottom = 360.0
+color = Color(1, 0.22352941, 1, 1)
+
+[node name="RightBorder" type="ColorRect" parent="DebugBorders" unique_id=301051237]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 360)
+offset_left = 640.0
+offset_right = 650.0
+offset_bottom = 360.0
+color = Color(1, 0.22352941, 1, 1)
+
+[node name="BotBorder" type="ColorRect" parent="DebugBorders" unique_id=1572512143]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 10)
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 370.0
+color = Color(1, 0.22352941, 1, 1)
+
+[node name="Muni" parent="." unique_id=126529545 instance=ExtResource("2_1fp7r")]
+unique_name_in_owner = true
+position = Vector2(8, 352)
+
+[node name="MuniCamera" parent="Muni" unique_id=621360633 instance=ExtResource("3_1fp7r")]
+unique_name_in_owner = true
+visibility_layer = 2

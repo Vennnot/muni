@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ratx4sg5vy68" path="res://scenes/windows/base_window.tscn" id="1_lpvdb"]
 [ext_resource type="Script" uid="uid://dfdsgncrl6qgr" path="res://scenes/windows/camera/camera_window.gd" id="2_t58on"]
+[ext_resource type="PackedScene" uid="uid://cqdd86fsdgij0" path="res://scenes/components/windowed_camera/windowed_camera.tscn" id="3_nxg8m"]
 
 [node name="CameraWindow" unique_id=2074263248 instance=ExtResource("1_lpvdb")]
 script = ExtResource("2_t58on")
+
+[node name="WindowedCamera" parent="." index="0" unique_id=621360633 instance=ExtResource("3_nxg8m")]
+offset = Vector2(8, 8)
