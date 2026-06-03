@@ -22,7 +22,8 @@ func _on_world_scale_changed()->void:
 
 
 func get_window_pos()->Vector2i: 
-	return ScreenHelper.screen_position + Vector2i(Vector2(global_position + offset - object_size / 2) * ScreenHelper.world_scale)
+	return (ScreenHelper.screen_position + Vector2i(Vector2(global_position + offset - object_size / 2) * ScreenHelper.world_scale))
+
 
 func _physics_process(delta: float) -> void:
 	if not window:
