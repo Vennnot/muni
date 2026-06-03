@@ -4,7 +4,7 @@
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
-transient = true
 unresizable = true
 borderless = true
+always_on_top = true
 transparent = true
