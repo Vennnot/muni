@@ -45,7 +45,7 @@ func _update() -> void:
 
 
 func get_integer_scale()->int:
-	return mini(world_scale.x,world_scale.y)
+	return mini(world_scale.x, world_scale.y)
 
 
 func get_window_offset() -> Vector2i:

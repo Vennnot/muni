@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://122tqjcnn7wr"]
+
+[ext_resource type="PackedScene" uid="uid://ratx4sg5vy68" path="res://scenes/windows/base_window.tscn" id="1_1sokd"]
+[ext_resource type="Script" uid="uid://cpurm0ykluvs0" path="res://scenes/windows/ui_window/ui_window.gd" id="2_io2lv"]
+[ext_resource type="PackedScene" uid="uid://oy8lws1hvgeq" path="res://scenes/ui/ui_object/ui_object.tscn" id="3_io2lv"]
+[ext_resource type="PackedScene" uid="uid://cqdd86fsdgij0" path="res://scenes/components/windowed_camera/windowed_camera.tscn" id="4_idilh"]
+
+[node name="UIWindow" unique_id=2074263248 instance=ExtResource("1_1sokd")]
+canvas_cull_mask = 4294966276
+script = ExtResource("2_io2lv")
+
+[node name="UIObject" parent="." index="0" unique_id=1581345809 instance=ExtResource("3_io2lv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(46, 31)
+offset_right = -54.0
+offset_bottom = -69.0
+
+[node name="WindowedCamera" parent="UIObject" index="1" unique_id=621360633 instance=ExtResource("4_idilh")]
+unique_name_in_owner = true
+visibility_layer = 4

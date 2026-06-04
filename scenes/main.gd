@@ -3,6 +3,7 @@ extends Node
 
 const OBJECT_WINDOW :=preload("uid://vscdnq3w5316")
 const WORLD :=preload("uid://dc38vkwwx70q1")
+const UI_WINDOW = preload("uid://122tqjcnn7wr")
 
 @export_range(0, 19) var player_visibility_layer: int = 2
 @export_range(0, 19) var world_visibility_layer: int = 0
@@ -21,17 +22,26 @@ func _ready():
 	var obj_0 :ObjectWindow= _create_window()
 	var obj_1 :ObjectWindow= _create_window()
 	var obj_2 :ObjectWindow= _create_window()
+	var ui :UIWindow= _create_UI_window()
+	ui.ui_object.global_position = Vector2(100,100)
 	obj_0.world_object.global_position = Vector2(8,8)
 	obj_1.world_object.global_position = Vector2(632,352)
 	obj_2.world_object.global_position = Vector2(632,8)
-	await get_tree().create_timer(1).timeout
-	ScreenHelper.set_screen(2)
+	#await get_tree().create_timer(1).timeout
+	#ScreenHelper.set_screen(2)
 
 func _create_window()->ObjectWindow:
 	var object_window := OBJECT_WINDOW.instantiate()
 	add_child(object_window)
 	object_window.world_2d = main_window.world_2d
 	return object_window
+
+
+func _create_UI_window()->UIWindow:
+	var ui_window := UI_WINDOW.instantiate()
+	add_child(ui_window)
+	ui_window.world_2d = main_window.world_2d
+	return ui_window
 
 func _set_culling_masks()->void:
 	main_window.set_canvas_cull_mask_bit(player_visibility_layer, true)

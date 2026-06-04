@@ -1,7 +1,10 @@
 class_name WindowedCamera
 extends Camera2D
 
-@export var object_size : Vector2 = Vector2i(16,16)
+@export var object_size : Vector2 = Vector2i(16,16) :
+	set(value):
+		object_size = value
+		_on_world_scale_changed()
 var window : Window : set = _set_window
 
 func _ready() -> void:
