@@ -6,5 +6,5 @@ extends Window
 
 func _ready() -> void:
 	close_requested.connect(queue_free)
-	camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+	camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
 	camera.window = self

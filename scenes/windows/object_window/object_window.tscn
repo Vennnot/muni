@@ -13,4 +13,3 @@ unique_name_in_owner = true
 
 [node name="WindowedCamera" parent="WorldObject" index="0" unique_id=621360633 instance=ExtResource("3_6s7tg")]
 unique_name_in_owner = true
-offset = Vector2(-8, -8)

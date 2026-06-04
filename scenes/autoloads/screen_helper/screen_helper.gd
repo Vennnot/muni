@@ -54,7 +54,7 @@ func get_window_offset() -> Vector2i:
 	return Vector2i((size.x - used.x) / 2, (size.y - used.y) / 2)
 
 
-func get_screen_size(taskbar: bool = false) -> Vector2i:
+func get_screen_size(taskbar: bool = true) -> Vector2i:
 	if taskbar:
 		return DisplayServer.screen_get_usable_rect(current_screen).size
 	return DisplayServer.screen_get_size(current_screen)

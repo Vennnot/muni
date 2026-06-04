@@ -7,7 +7,6 @@ var _interval: float = 1.0
 const SPEED: float = 100.0
 
 func _physics_process(delta: float) -> void:
-	return
 	_timer += delta
 	if _timer >= _interval:
 		_timer = 0.0

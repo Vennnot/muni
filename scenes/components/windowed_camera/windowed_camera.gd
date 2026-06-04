@@ -20,6 +20,10 @@ func _set_window(w:Window)->void:
 
 func _on_world_scale_changed()->void:
 	zoom = Vector2.ONE * ScreenHelper.get_integer_scale()
+	if window:
+		window.current_screen = ScreenHelper.current_screen
+		window.min_size = object_size * Vector2(zoom)
+		window.size = window.min_size
 
 
 func get_window_pos() -> Vector2i:
@@ -29,9 +33,17 @@ func get_window_pos() -> Vector2i:
 	var origin := Vector2i(usable.position)
 	var world := Vector2(640, 360) * int_scale
 	var world_pos := global_position + offset - object_size / 2
-	var ratio := Vector2(world_pos.x / 640.0, world_pos.y / 360.0)
+	var ratio := Vector2(world_pos.x / (640.0 - object_size.x), world_pos.y / (360.0 - object_size.y))
 	var margin := (screen - world)
 	var result := origin + Vector2i(world_pos * int_scale + margin * ratio)
+	#print("global_position: ", global_position)
+	#print("world_pos: ", world_pos)
+	#print("ratio: ", ratio)
+	#print("margin: ", margin)
+	#print("origin: ", origin)
+	#print("result: ", result)
+	#print("int_scale: ", int_scale)
+	#print("world_pos * int_scale: ", world_pos * int_scale)
 	result.y = maxi(result.y, usable.position.y)
 	result.x = maxi(result.x, usable.position.x)
 	result.y = mini(result.y, usable.position.y + usable.size.y - int(window.size.y))

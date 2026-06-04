@@ -22,8 +22,10 @@ func _ready():
 	var obj_1 :ObjectWindow= _create_window()
 	var obj_2 :ObjectWindow= _create_window()
 	obj_0.world_object.global_position = Vector2(8,8)
-	obj_1.world_object.global_position = Vector2(648,368)
-	obj_2.world_object.global_position = Vector2(648,8)
+	obj_1.world_object.global_position = Vector2(632,352)
+	obj_2.world_object.global_position = Vector2(632,8)
+	await get_tree().create_timer(1).timeout
+	ScreenHelper.set_screen(2)
 
 func _create_window()->ObjectWindow:
 	var object_window := OBJECT_WINDOW.instantiate()
