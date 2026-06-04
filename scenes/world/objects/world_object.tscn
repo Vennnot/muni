@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwb2esdt45yy8"]
+
+[ext_resource type="Script" uid="uid://xvjjq7jeugj7" path="res://scenes/world/objects/world_object.gd" id="1_xps60"]
+[ext_resource type="Texture2D" uid="uid://x3iama3m0h5w" path="res://assets/kenney/tile_0029.png" id="2_8axa3"]
+
+[node name="WorldObject" type="Node2D" unique_id=636761566]
+script = ExtResource("1_xps60")
+
+[node name="Tile0029" type="Sprite2D" parent="." unique_id=721791976]
+texture = ExtResource("2_8axa3")

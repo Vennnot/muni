@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vscdnq3w5316"]
+
+[ext_resource type="PackedScene" uid="uid://ratx4sg5vy68" path="res://scenes/windows/base_window.tscn" id="1_ru4tu"]
+[ext_resource type="Script" uid="uid://c4lpggj7ungax" path="res://scenes/windows/object_window/object_window.gd" id="2_rxla5"]
+[ext_resource type="PackedScene" uid="uid://cqdd86fsdgij0" path="res://scenes/components/windowed_camera/windowed_camera.tscn" id="3_6s7tg"]
+[ext_resource type="PackedScene" uid="uid://bwb2esdt45yy8" path="res://scenes/world/objects/world_object.tscn" id="3_rxla5"]
+
+[node name="ObjectWindow" unique_id=2074263248 instance=ExtResource("1_ru4tu")]
+script = ExtResource("2_rxla5")
+
+[node name="WorldObject" parent="." index="0" unique_id=636761566 instance=ExtResource("3_rxla5")]
+unique_name_in_owner = true
+
+[node name="WindowedCamera" parent="WorldObject" index="0" unique_id=621360633 instance=ExtResource("3_6s7tg")]
+unique_name_in_owner = true
+offset = Vector2(-8, -8)

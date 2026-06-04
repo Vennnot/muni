@@ -41,5 +41,4 @@ func get_window_pos() -> Vector2i:
 func _physics_process(delta: float) -> void:
 	if not window:
 		return
-	print(DisplayServer.screen_get_usable_rect(ScreenHelper.current_screen))
 	window.position = get_window_pos()
