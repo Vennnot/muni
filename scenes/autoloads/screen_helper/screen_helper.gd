@@ -15,8 +15,13 @@ var world_scale: Vector2 = _calc_scaling():
 		world_scale_changed.emit()
 
 
+func _ready() -> void:
+	print(DisplayServer.get_primary_screen())
+	for i in DisplayServer.get_screen_count():
+		print(i, ": ", DisplayServer.screen_get_size(i))
+
 func _calc_scaling() -> Vector2:
-	var size:=get_screen_size()
+	var size:Vector2=get_screen_size()
 	var scale_x: float = size.x / 640
 	var scale_y: float = size.y / 360
 	return Vector2(scale_x, scale_y)
@@ -50,12 +55,11 @@ func get_integer_scale()->int:
 func get_window_offset() -> Vector2i:
 	var integer_scale: int = get_integer_scale()
 	var used := Vector2i(640, 360) * integer_scale
-	var size:= get_screen_size()
-	print(Vector2i((size.x - used.x) / 2, size.y - used.y))
-	return Vector2i((size.x - used.x) / 2, size.y - used.y)
+	var size := get_screen_size()
+	return Vector2i((size.x - used.x) / 2, (size.y - used.y) / 2)
 
 
-func get_screen_size(taskbar: bool = true) -> Vector2i:
+func get_screen_size(taskbar: bool = false) -> Vector2i:
 	if taskbar:
 		return DisplayServer.screen_get_usable_rect(current_screen).size
 	return DisplayServer.screen_get_size(current_screen)

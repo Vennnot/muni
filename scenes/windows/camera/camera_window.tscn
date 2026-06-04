@@ -8,4 +8,3 @@
 script = ExtResource("2_t58on")
 
 [node name="WindowedCamera" parent="." index="0" unique_id=621360633 instance=ExtResource("3_nxg8m")]
-offset = Vector2(8, 8)

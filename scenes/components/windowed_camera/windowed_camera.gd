@@ -9,6 +9,7 @@ func _ready() -> void:
 	ScreenHelper.world_scale_changed.connect(_on_world_scale_changed)
 	_on_world_scale_changed()
 
+
 func _set_window(w:Window)->void:
 	window = w
 	window.current_screen = ScreenHelper.current_screen
@@ -21,12 +22,21 @@ func _on_world_scale_changed()->void:
 	zoom = Vector2.ONE * ScreenHelper.get_integer_scale()
 
 
-func get_window_pos()->Vector2i: 
-	return (ScreenHelper.screen_position + Vector2i(Vector2(global_position + offset - object_size / 2) * ScreenHelper.world_scale))
+func get_window_pos() -> Vector2i:
+	var int_scale: int = ScreenHelper.get_integer_scale()
+	var screen := Vector2(ScreenHelper.get_screen_size())
+	var world := Vector2(640, 360) * int_scale
+	var world_pos := global_position + offset - object_size / 2
+	var ratio := Vector2(world_pos.x / 640.0, world_pos.y / 360.0)
+	var margin := (screen - world)
+	var result := ScreenHelper.screen_position + Vector2i(world_pos * int_scale + margin * ratio)
+
+	result.y = maxi(result.y, ScreenHelper.screen_position.y)
+	result.x = maxi(result.x, ScreenHelper.screen_position.x)
+	return result
 
 
 func _physics_process(delta: float) -> void:
 	if not window:
 		return
-	
 	window.position = get_window_pos()
