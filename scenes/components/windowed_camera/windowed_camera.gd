@@ -31,12 +31,15 @@ func get_window_pos() -> Vector2i:
 	var margin := (screen - world)
 	var result := ScreenHelper.screen_position + Vector2i(world_pos * int_scale + margin * ratio)
 
-	result.y = maxi(result.y, ScreenHelper.screen_position.y)
+	var usable := DisplayServer.screen_get_usable_rect(ScreenHelper.current_screen)
+	result.y = maxi(result.y, usable.position.y)
 	result.x = maxi(result.x, ScreenHelper.screen_position.x)
+	result.y = mini(result.y, usable.position.y + usable.size.y - int(window.size.y))
+	result.x = mini(result.x, ScreenHelper.screen_position.x + int(ScreenHelper.get_screen_size().x) - int(window.size.x))
 	return result
-
 
 func _physics_process(delta: float) -> void:
 	if not window:
 		return
+	print(DisplayServer.screen_get_usable_rect(ScreenHelper.current_screen))
 	window.position = get_window_pos()
