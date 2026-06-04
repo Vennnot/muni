@@ -12,6 +12,7 @@ var world_scale: Vector2 = _calc_scaling():
 		if world_scale == value:
 			return
 		world_scale = value
+		print(world_scale)
 		world_scale_changed.emit()
 
 
