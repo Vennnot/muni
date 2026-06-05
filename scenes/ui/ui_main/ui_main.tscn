@@ -39,7 +39,7 @@ texture_normal = ExtResource("4_hd16k")
 
 [node name="PrimaryContainer" type="MarginContainer" parent="DivideContainer" unique_id=2112489671]
 visibility_layer = 4
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
