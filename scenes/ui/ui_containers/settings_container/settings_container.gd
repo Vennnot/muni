@@ -62,6 +62,7 @@ func _on_world_next_pressed()->void:
 
 
 func _on_world_scale_changed()->void:
+	scale_check_box.button_pressed = ScreenHelper.allow_manual_scaling
 	adjust_world_scale.value_label.text = str(ScreenHelper.get_integer_scale())
 
 #endregion

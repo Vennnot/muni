@@ -34,9 +34,9 @@ func get_window_pos() -> Vector2i:
 	var usable := DisplayServer.screen_get_usable_rect(ScreenHelper.current_screen)
 	var screen := Vector2(usable.size)
 	var origin := Vector2i(usable.position)
-	var world := Vector2(640, 360) * int_scale
+	var world := ScreenHelper.world_size * int_scale
 	var world_pos := global_position + offset - object_size / 2
-	var ratio := Vector2(world_pos.x / (640.0 - object_size.x), world_pos.y / (360.0 - object_size.y))
+	var ratio := Vector2(world_pos.x / (ScreenHelper.world_size.x - object_size.x), world_pos.y / (ScreenHelper.world_size.y - object_size.y))
 	var margin := (screen - world)
 	var result := origin + Vector2i(world_pos * int_scale + margin * ratio)
 	#print("global_position: ", global_position)

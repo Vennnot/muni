@@ -1,6 +1,7 @@
 extends Node
 
 signal screen_changed
+signal manual_scaling_changed
 signal world_scale_changed
 signal ui_scale_changed
 
@@ -9,7 +10,7 @@ var allow_manual_scaling := false :
 		allow_manual_scaling = value
 		if not allow_manual_scaling:
 			manual_scale = get_integer_scale()
-		world_scale_changed.emit()
+		manual_scaling_changed.emit()
 var manual_scale := 0 :
 	set(value):
 		manual_scale = clampi(value, 1, 5)

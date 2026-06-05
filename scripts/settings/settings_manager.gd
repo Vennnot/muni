@@ -4,6 +4,9 @@ extends RefCounted
 const SAVE_PATH: String = "user://settings.cfg"
 const DISPLAY: String = "display"
 
+const SCREEN: String = "screen"
+const WORLD_SCALE: String = "world_scale"
+
 var _config: ConfigFile = ConfigFile.new()
 
 func _initialize() -> void:
@@ -13,12 +16,17 @@ func _initialize() -> void:
 		load_settings()
 		return
 
-	_config.set_value(DISPLAY, "screen", 0)
+	_config.set_value(DISPLAY, SCREEN, 0)
+	_config.set_value(DISPLAY, WORLD_SCALE, 0)
 	_config.save(SAVE_PATH)
 
 
 func load_settings() -> void:
-	ScreenHelper.set_screen(_config.get_value(DISPLAY, "screen", 0))
+	ScreenHelper.set_screen(_config.get_value(DISPLAY, SCREEN, 0))
+	var manual_scale :int=_config.get_value(DISPLAY, WORLD_SCALE, 3)
+	if manual_scale > 0:
+		ScreenHelper.allow_manual_scaling = true
+		ScreenHelper.manual_scale = manual_scale
 
 
 #
@@ -36,8 +44,17 @@ func load_settings() -> void:
 
 func _connect_signals()->void:
 	ScreenHelper.screen_changed.connect(_on_screen_changed)
+	ScreenHelper.world_scale_changed.connect(_on_world_scaling_changed)
 
 
 func _on_screen_changed()->void:
-	_config.set_value(DISPLAY, "screen", ScreenHelper.current_screen)
+	_config.set_value(DISPLAY, SCREEN, ScreenHelper.current_screen)
+	_config.save(SAVE_PATH)
+
+
+func _on_world_scaling_changed()->void:
+	var scale := 0
+	if ScreenHelper.allow_manual_scaling:
+		scale = ScreenHelper.manual_scale
+	_config.set_value(DISPLAY, WORLD_SCALE, scale)
 	_config.save(SAVE_PATH)
