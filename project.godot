@@ -44,7 +44,8 @@ window/per_pixel_transparency/allowed=true
 
 folder_colors={
 "res://assets/": "purple",
-"res://scenes/": "green"
+"res://scenes/": "green",
+"res://scripts/": "red"
 }
 
 [input]

@@ -4,6 +4,12 @@ signal screen_changed
 signal world_scale_changed
 signal ui_scale_changed
 
+var allow_manual_scaling := false
+var manual_scale := 1 :
+	set(value):
+		manual_scale = clampi(value, 1, 10)
+		world_scale_changed.emit()
+
 var world_size := Vector2(640,360)
 var current_screen: int = DisplayServer.get_primary_screen()
 var screen_position: Vector2i = DisplayServer.screen_get_position(current_screen)
@@ -12,7 +18,6 @@ var world_scale: Vector2 = _calc_scaling():
 		if world_scale == value:
 			return
 		world_scale = value
-		print(world_scale)
 		world_scale_changed.emit()
 
 
@@ -45,7 +50,10 @@ func _update() -> void:
 
 
 func get_integer_scale()->int:
-	return mini(world_scale.x, world_scale.y)
+	if allow_manual_scaling:
+		return manual_scale
+	else:
+		return mini(world_scale.x, world_scale.y)
 
 
 func get_window_offset() -> Vector2i:

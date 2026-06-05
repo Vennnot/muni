@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7nlr37sv2qnl" path="res://scenes/components/ui_camera/ui_camera.tscn" id="4_igbx4"]
 
 [node name="ToggleButtonWindow" unique_id=2074263248 instance=ExtResource("1_johf7")]
+canvas_item_default_texture_filter = 1
 canvas_cull_mask = 4294966276
 script = ExtResource("2_4yubp")
 

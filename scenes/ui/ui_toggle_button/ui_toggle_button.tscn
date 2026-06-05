@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cuav2c7cuxn0w"]
 
 [ext_resource type="Script" uid="uid://cgqe4j23kfi15" path="res://scenes/ui/ui_toggle_button/ui_toggle_button.gd" id="1_da1a7"]
+[ext_resource type="Texture2D" uid="uid://dci4gt3oa8rn6" path="res://assets/kenney/tile_0002.png" id="1_n1666"]
 
-[node name="UIToggleButton" type="Button" unique_id=1949444385]
+[node name="UIToggleButton" type="TextureButton" unique_id=2095082286]
+visibility_layer = 4
 z_index = 1000
-offset_left = -28.0
-offset_top = -15.0
-offset_right = 28.0
-offset_bottom = 16.0
-text = "toggle"
+custom_minimum_size = Vector2(16, 16)
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("1_n1666")
 script = ExtResource("1_da1a7")

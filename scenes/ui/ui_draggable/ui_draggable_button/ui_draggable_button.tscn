@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bhdskjxfaegy5"]
+
+[ext_resource type="Script" uid="uid://5dwa2lwhuyxy" path="res://scenes/ui/ui_draggable/ui_draggable_button/ui_draggable_button.gd" id="1_hnbji"]
+
+[node name="UIDraggableButton" type="TextureButton" unique_id=901005293]
+visibility_layer = 4
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_hnbji")

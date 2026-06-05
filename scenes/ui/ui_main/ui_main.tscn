@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dqfanq3jpxd5q"]
+
+[ext_resource type="Script" uid="uid://be6a3bvak4rx7" path="res://scenes/ui/ui_main/ui_main.gd" id="1_4nwhd"]
+[ext_resource type="PackedScene" uid="uid://dlltc47lvo7tt" path="res://scenes/ui/ui_texture_button/ui_texture_button.tscn" id="2_ywl5k"]
+[ext_resource type="Texture2D" uid="uid://db38rpx0qp5jf" path="res://assets/kenney/tile_0094.png" id="3_667a8"]
+[ext_resource type="PackedScene" uid="uid://bhdskjxfaegy5" path="res://scenes/ui/ui_draggable/ui_draggable_button/ui_draggable_button.tscn" id="4_d45k6"]
+[ext_resource type="Texture2D" uid="uid://c5twk2og3h0ps" path="res://assets/kenney/tile_0051.png" id="4_hd16k"]
+[ext_resource type="Texture2D" uid="uid://dci4gt3oa8rn6" path="res://assets/kenney/tile_0002.png" id="5_d45k6"]
+[ext_resource type="PackedScene" uid="uid://gjac1dlhpmr5" path="res://scenes/ui/ui_containers/settings_container/settings_container.tscn" id="7_d45k6"]
+
+[node name="UIMain" type="PanelContainer" unique_id=1631845185]
+visibility_layer = 4
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_4nwhd")
+
+[node name="DivideContainer" type="HBoxContainer" parent="." unique_id=1405265064]
+visibility_layer = 4
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="DivideContainer" unique_id=1958279456]
+visibility_layer = 4
+layout_mode = 2
+
+[node name="SettingsButton" parent="DivideContainer/ButtonsContainer" unique_id=807709623 instance=ExtResource("2_ywl5k")]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("3_667a8")
+
+[node name="DraggableButton" parent="DivideContainer/ButtonsContainer" unique_id=901005293 instance=ExtResource("4_d45k6")]
+layout_mode = 2
+texture_normal = ExtResource("5_d45k6")
+
+[node name="CloseButton" parent="DivideContainer/ButtonsContainer" unique_id=1774331460 instance=ExtResource("2_ywl5k")]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_hd16k")
+
+[node name="PrimaryContainer" type="MarginContainer" parent="DivideContainer" unique_id=2112489671]
+visibility_layer = 4
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SettingsContainer" parent="DivideContainer/PrimaryContainer" unique_id=1348572832 instance=ExtResource("7_d45k6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

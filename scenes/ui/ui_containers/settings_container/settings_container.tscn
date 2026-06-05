@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://gjac1dlhpmr5"]
+
+[ext_resource type="Script" uid="uid://djqerxkorvr5s" path="res://scenes/ui/ui_containers/settings_container/settings_container.gd" id="1_nbwgt"]
+[ext_resource type="PackedScene" uid="uid://d1xavif0xffua" path="res://scenes/ui/ui_containers/settings_container/adjustable_values_container/adjust_value_container.tscn" id="2_08etd"]
+
+[node name="SettingsContainer" type="VBoxContainer" unique_id=1348572832]
+visibility_layer = 4
+script = ExtResource("1_nbwgt")
+
+[node name="Label" type="Label" parent="." unique_id=335989049]
+visibility_layer = 4
+layout_mode = 2
+text = "settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1040641515]
+visibility_layer = 4
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=395155513]
+visibility_layer = 4
+layout_mode = 2
+text = "display"
+
+[node name="AdjustDisplay" parent="HBoxContainer" unique_id=1330019770 instance=ExtResource("2_08etd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WorldScalingContainer" type="HBoxContainer" parent="." unique_id=1030526598]
+visibility_layer = 4
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WorldScalingContainer" unique_id=220140023]
+visibility_layer = 4
+layout_mode = 2
+text = "world scale"
+
+[node name="AdjustWorldScale" parent="WorldScalingContainer" unique_id=1328715143 instance=ExtResource("2_08etd")]
+unique_name_in_owner = true
+layout_mode = 2

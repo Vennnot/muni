@@ -48,6 +48,8 @@ func _create_UI_window()->UIWindow:
 func _create_toggle_button_window()->UIWindow:
 	var ui_window := TOGGLE_BUTTON_WINDOW.instantiate()
 	add_child(ui_window)
+	var screen_size: Vector2 = DisplayServer.screen_get_size(ui_window.camera.current_screen)
+	ui_window.position = DisplayServer.screen_get_position(ui_window.camera.current_screen) + Vector2i(screen_size) - Vector2i(ui_window.size)
 	return ui_window
 
 func _set_culling_masks()->void:

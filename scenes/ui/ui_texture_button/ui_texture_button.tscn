@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dlltc47lvo7tt"]
+
+[ext_resource type="Script" uid="uid://xpmmpr1d7s8u" path="res://scenes/ui/ui_texture_button/ui_texture_button.gd" id="1_fjwnk"]
+
+[node name="UITextureButton" type="TextureButton" unique_id=807709623]
+visibility_layer = 4
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_fjwnk")

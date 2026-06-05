@@ -1,5 +1,5 @@
 class_name UIDraggable
-extends Button
+extends TextureButton
 
 var _dragging: bool = false
 var _drag_offset: Vector2i
