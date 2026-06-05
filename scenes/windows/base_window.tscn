@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ratx4sg5vy68"]
 
+[ext_resource type="Script" uid="uid://dwkko5gcp0md5" path="res://scenes/windows/base_window.gd" id="1_8u5a3"]
+
 [node name="BaseWindow" type="Window" unique_id=2074263248]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
@@ -9,3 +11,4 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
+script = ExtResource("1_8u5a3")

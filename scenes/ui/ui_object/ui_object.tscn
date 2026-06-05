@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://oy8lws1hvgeq"]
 
+[ext_resource type="Script" uid="uid://1c8v8pmqw4bf" path="res://scenes/ui/ui_object/ui_object.gd" id="1_rep1b"]
+
 [node name="UIObject" type="Control" unique_id=1581345809]
 visibility_layer = 4
 layout_mode = 3
@@ -9,13 +11,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Button" type="Button" parent="." unique_id=1581910154]
-visibility_layer = 4
-z_index = 5
-layout_mode = 0
-offset_left = -23.0
-offset_top = -15.5
-offset_right = 23.0
-offset_bottom = 15.5
-text = "bruh"
+script = ExtResource("1_rep1b")

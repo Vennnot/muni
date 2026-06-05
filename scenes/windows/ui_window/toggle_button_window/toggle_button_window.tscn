@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://botyc2rllbsx6"]
+
+[ext_resource type="PackedScene" uid="uid://ratx4sg5vy68" path="res://scenes/windows/base_window.tscn" id="1_johf7"]
+[ext_resource type="Script" uid="uid://cpurm0ykluvs0" path="res://scenes/windows/ui_window/ui_window.gd" id="2_4yubp"]
+[ext_resource type="PackedScene" uid="uid://cuav2c7cuxn0w" path="res://scenes/ui/ui_toggle_button/ui_toggle_button.tscn" id="3_6enrp"]
+[ext_resource type="PackedScene" uid="uid://b7nlr37sv2qnl" path="res://scenes/components/ui_camera/ui_camera.tscn" id="4_igbx4"]
+
+[node name="ToggleButtonWindow" unique_id=2074263248 instance=ExtResource("1_johf7")]
+canvas_cull_mask = 4294966276
+script = ExtResource("2_4yubp")
+
+[node name="UIToggleButton" parent="." index="0" unique_id=1949444385 instance=ExtResource("3_6enrp")]
+unique_name_in_owner = true
+visibility_layer = 4
+custom_minimum_size = Vector2(84, 46)
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 84.0
+offset_bottom = 46.0
+
+[node name="UICamera" parent="UIToggleButton" index="0" unique_id=621360633 node_paths=PackedStringArray("ui") instance=ExtResource("4_igbx4")]
+unique_name_in_owner = true
+ui = NodePath("..")

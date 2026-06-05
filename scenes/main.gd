@@ -4,6 +4,7 @@ extends Node
 const OBJECT_WINDOW :=preload("uid://vscdnq3w5316")
 const WORLD :=preload("uid://dc38vkwwx70q1")
 const UI_WINDOW = preload("uid://122tqjcnn7wr")
+const TOGGLE_BUTTON_WINDOW = preload("uid://botyc2rllbsx6")
 
 @export_range(0, 19) var player_visibility_layer: int = 2
 @export_range(0, 19) var world_visibility_layer: int = 0
@@ -22,8 +23,8 @@ func _ready():
 	var obj_0 :ObjectWindow= _create_window()
 	var obj_1 :ObjectWindow= _create_window()
 	var obj_2 :ObjectWindow= _create_window()
+	var ui_button : UIWindow = _create_toggle_button_window()
 	var ui :UIWindow= _create_UI_window()
-	ui.ui_object.global_position = Vector2(100,100)
 	obj_0.world_object.global_position = Vector2(8,8)
 	obj_1.world_object.global_position = Vector2(632,352)
 	obj_2.world_object.global_position = Vector2(632,8)
@@ -41,6 +42,12 @@ func _create_UI_window()->UIWindow:
 	var ui_window := UI_WINDOW.instantiate()
 	add_child(ui_window)
 	ui_window.world_2d = main_window.world_2d
+	return ui_window
+
+
+func _create_toggle_button_window()->UIWindow:
+	var ui_window := TOGGLE_BUTTON_WINDOW.instantiate()
+	add_child(ui_window)
 	return ui_window
 
 func _set_culling_masks()->void:

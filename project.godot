@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*uid://bxckf3gsygqf4"
 ScreenHelper="*uid://b8cvmhhnf3n0s"
+Global="*uid://ckxmy8k7d7lmx"
 
 [debug]
 
@@ -59,6 +59,7 @@ LMB={
 
 2d_render/layer_1="world"
 2d_render/layer_2="player"
+2d_render/layer_3="UI"
 
 [physics]
 
