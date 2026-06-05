@@ -15,6 +15,8 @@ var available_screens : int
 #change clamp borders/usable screen, so it only takes for example,
 #90% of screen horizontally
 
+#always on top setting on vs off
+
 func _ready() -> void:
 	ScreenHelper.ui_scale_changed.connect(_on_ui_scale_changed)
 	ScreenHelper.screen_changed.connect(_on_screen_changed)
