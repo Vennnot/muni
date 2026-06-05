@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScreenHelper="*uid://b8cvmhhnf3n0s"
-Global="*uid://ckxmy8k7d7lmx"
 EventBus="*uid://ct2lw1yhklyay"
+Global="*uid://ckxmy8k7d7lmx"
 
 [debug]
 

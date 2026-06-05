@@ -6,6 +6,7 @@ extends VBoxContainer
 @onready var adjust_world_scale: AdjustableValueContainer = %AdjustWorldScale
 @onready var toggle_scale: UITextureButton = %ToggleScale
 
+@onready var adjust_ui_scale: AdjustableValueContainer = %AdjustUIScale
 
 
 var available_screens : int
@@ -15,6 +16,7 @@ var available_screens : int
 #90% of screen horizontally
 
 func _ready() -> void:
+	ScreenHelper.ui_scale_changed.connect(_on_ui_scale_changed)
 	ScreenHelper.screen_changed.connect(_on_screen_changed)
 	ScreenHelper.world_scale_changed.connect(_on_world_scale_changed)
 	available_screens = DisplayServer.get_screen_count()-1
@@ -27,21 +29,19 @@ func _ready() -> void:
 	toggle_scale.toggled.connect(_on_scale_toggled)
 	adjust_world_scale.disable()
 	
+	adjust_ui_scale.back_button.pressed.connect(_on_ui_back_pressed)
+	adjust_ui_scale.next_button.pressed.connect(_on_ui_next_pressed)
+	
 	_on_screen_changed()
 	_on_world_scale_changed()
+	_on_ui_scale_changed(ScreenHelper.ui_scale)
 
 #region display screen
 func _on_display_back_pressed()->void:
-	var current_screen := ScreenHelper.current_screen
-	if current_screen <= 0:
-		return
-	ScreenHelper.set_screen(current_screen-1)
+	ScreenHelper.set_screen(ScreenHelper.current_screen-1)
 
 func _on_display_next_pressed()->void:
-	var current_screen := ScreenHelper.current_screen
-	if current_screen >= available_screens:
-		return
-	ScreenHelper.set_screen(current_screen+1)
+	ScreenHelper.set_screen(ScreenHelper.current_screen+1)
 
 
 func _on_screen_changed()->void:
@@ -69,5 +69,17 @@ func _on_world_next_pressed()->void:
 func _on_world_scale_changed()->void:
 	toggle_scale.button_pressed = ScreenHelper.allow_manual_scaling
 	adjust_world_scale.value_label.text = str(ScreenHelper.get_integer_scale())
+
+#endregion
+
+#region ui scale
+func _on_ui_back_pressed() -> void:
+	ScreenHelper.ui_scale -= 0.25
+
+func _on_ui_next_pressed() -> void:
+	ScreenHelper.ui_scale += 0.25
+
+func _on_ui_scale_changed(_scale: float) -> void:
+	adjust_ui_scale.value_label.text = str(ScreenHelper.ui_scale)
 
 #endregion

@@ -8,22 +8,19 @@ extends Control
 @onready var settings_container: VBoxContainer = %SettingsContainer
 
 func _ready() -> void:
+	_store_base_values(self)
 	Global.ui_toggled.connect(_on_ui_toggled)
-	Global.ui_scale_changed.connect(_on_scale_changed)
+	ScreenHelper.ui_scale_changed.connect(_on_scale_changed)
 	close_button.pressed.connect(func():get_tree().quit())
 	settings_button.pressed.connect(_on_settings_button_pressed)
-	_store_base_values(self)
-	await get_tree().create_timer(2).timeout
-	set_ui_scale(3)
 
 
-func set_ui_scale(s: int) -> void:
-	Global.ui_scale = s
+func set_ui_scale(s: float) -> void:
+	ScreenHelper.ui_scale = s
+
+
+func _on_scale_changed(s:float)->void:
 	_apply_ui_scale(self, s)
-
-
-func _on_scale_changed(s:int)->void:
-	pass
 
 
 func _on_ui_toggled(is_open:bool)->void:
@@ -38,6 +35,7 @@ func _on_settings_button_pressed()->void:
 func hide_containers()->void:
 	settings_container.hide()
 
+#region ui_scaling
 
 var _base_min_sizes: Dictionary = {}
 var _base_font_sizes: Dictionary = {}
@@ -56,7 +54,7 @@ func _store_base_values(node: Node) -> void:
 	for child in node.get_children():
 		_store_base_values(child)
 
-func _apply_ui_scale(node: Node, ui_scale: int) -> void:
+func _apply_ui_scale(node: Node, ui_scale: float) -> void:
 	if node is Control:
 		var control := node as Control
 		var base: Vector2 = _base_min_sizes.get(control.get_instance_id(), Vector2.ZERO)
@@ -72,3 +70,4 @@ func _apply_ui_scale(node: Node, ui_scale: int) -> void:
 		box.add_theme_constant_override("separation", base * ui_scale)
 	for child in node.get_children():
 		_apply_ui_scale(child, ui_scale)
+#endregion

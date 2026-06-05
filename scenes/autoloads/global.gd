@@ -1,12 +1,6 @@
 extends Node
 
 signal ui_toggled(is_open:bool)
-signal ui_scale_changed(scale:int)
-
-var ui_scale : int = 1 :
-	set(value):
-		ui_scale = value
-		ui_scale_changed.emit(ui_scale)
 var settings_manager : SettingsManager
 
 func _ready() -> void:

@@ -6,6 +6,7 @@ const DISPLAY: String = "display"
 
 const SCREEN: String = "screen"
 const WORLD_SCALE: String = "world_scale"
+const UI_SCALE: String = "ui_scale"
 
 var _config: ConfigFile = ConfigFile.new()
 
@@ -18,11 +19,13 @@ func _initialize() -> void:
 
 	_config.set_value(DISPLAY, SCREEN, 0)
 	_config.set_value(DISPLAY, WORLD_SCALE, 0)
+	_config.set_value(DISPLAY, UI_SCALE, 1)
 	_config.save(SAVE_PATH)
 
 
 func load_settings() -> void:
 	ScreenHelper.set_screen(_config.get_value(DISPLAY, SCREEN, 0))
+	ScreenHelper.ui_scale = _config.get_value(DISPLAY, UI_SCALE, 1)
 	var manual_scale :int=_config.get_value(DISPLAY, WORLD_SCALE, 3)
 	if manual_scale > 0:
 		ScreenHelper.allow_manual_scaling = true
@@ -43,8 +46,14 @@ func load_settings() -> void:
 
 
 func _connect_signals()->void:
+	ScreenHelper.ui_scale_changed.connect(_on_ui_scale_changed)
 	ScreenHelper.screen_changed.connect(_on_screen_changed)
 	ScreenHelper.world_scale_changed.connect(_on_world_scaling_changed)
+
+
+func _on_ui_scale_changed(scale:float)->void:
+	_config.set_value(DISPLAY, UI_SCALE, scale)
+	_config.save(SAVE_PATH)
 
 
 func _on_screen_changed()->void:

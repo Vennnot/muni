@@ -13,6 +13,7 @@ script = ExtResource("2_4yubp")
 [node name="UIToggleButton" parent="." index="0" unique_id=1949444385 instance=ExtResource("3_6enrp")]
 unique_name_in_owner = true
 texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 16.0

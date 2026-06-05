@@ -16,16 +16,16 @@ text = "settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1040641515]
+[node name="WorldDisplayContainer" type="HBoxContainer" parent="." unique_id=1040641515]
 visibility_layer = 4
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=395155513]
+[node name="Label" type="Label" parent="WorldDisplayContainer" unique_id=395155513]
 visibility_layer = 4
 layout_mode = 2
 text = "display"
 
-[node name="AdjustDisplay" parent="HBoxContainer" unique_id=1330019770 instance=ExtResource("2_08etd")]
+[node name="AdjustDisplay" parent="WorldDisplayContainer" unique_id=1330019770 instance=ExtResource("2_08etd")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -56,5 +56,18 @@ layout_mode = 2
 text = "world scale"
 
 [node name="AdjustWorldScale" parent="WorldScalingContainer" unique_id=1328715143 instance=ExtResource("2_08etd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UIScaleContainer" type="HBoxContainer" parent="." unique_id=1381574599]
+visibility_layer = 4
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIScaleContainer" unique_id=278068402]
+visibility_layer = 4
+layout_mode = 2
+text = "ui_scale"
+
+[node name="AdjustUIScale" parent="UIScaleContainer" unique_id=598823425 instance=ExtResource("2_08etd")]
 unique_name_in_owner = true
 layout_mode = 2

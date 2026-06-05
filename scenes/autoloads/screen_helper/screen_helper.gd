@@ -3,7 +3,8 @@ extends Node
 signal screen_changed
 signal manual_scaling_changed
 signal world_scale_changed
-signal ui_scale_changed
+signal ui_scale_changed(scale:float)
+
 
 var allow_manual_scaling := false :
 	set(value):
@@ -15,6 +16,10 @@ var manual_scale := 0 :
 	set(value):
 		manual_scale = clampi(value, 1, 5)
 		world_scale_changed.emit()
+var ui_scale : float = 1 :
+	set(value):
+		ui_scale = clampf(value,1,3)
+		ui_scale_changed.emit(ui_scale)
 
 var world_size := Vector2(640,360)
 var current_screen: int = DisplayServer.get_primary_screen()
@@ -46,7 +51,6 @@ func get_available_screens() -> Array[int]:
 
 func set_screen(screen: int) -> void:
 	if screen < 0 or screen >= DisplayServer.get_screen_count():
-		push_error("Invalid screen index: %d" % screen)
 		return
 	current_screen = screen
 	_update()
