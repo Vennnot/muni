@@ -12,6 +12,7 @@ var available_screens : int
 
 func _ready() -> void:
 	ScreenHelper.screen_changed.connect(_on_screen_changed)
+	ScreenHelper.world_scale_changed.connect(_on_world_scale_changed)
 	available_screens = DisplayServer.get_screen_count()-1
 	
 	adjust_display.back_button.pressed.connect(_on_display_back_pressed)
@@ -19,10 +20,11 @@ func _ready() -> void:
 	
 	adjust_world_scale.back_button.pressed.connect(_on_world_back_pressed)
 	adjust_world_scale.next_button.pressed.connect(_on_world_next_pressed)
-	scale_check_box.pressed.connect(_on_scale_checkbox_pressed)
+	scale_check_box.toggled.connect(_on_scale_checkbox_toggled)
 	adjust_world_scale.disable()
 	
 	_on_screen_changed()
+	_on_world_scale_changed()
 
 func _on_display_back_pressed()->void:
 	var current_screen := ScreenHelper.current_screen
@@ -43,17 +45,23 @@ func _on_screen_changed()->void:
 
 
 #region world scale
-func _on_scale_checkbox_pressed()->void:
-	if scale_check_box.pressed:
+func _on_scale_checkbox_toggled(toggled_on:bool)->void:
+	ScreenHelper.allow_manual_scaling = toggled_on
+	if toggled_on:
 		adjust_world_scale.enable()
 	else:
 		adjust_world_scale.disable()
 
 
 func _on_world_back_pressed()->void:
-	pass
+	ScreenHelper.manual_scale-=1
 
 
 func _on_world_next_pressed()->void:
-	pass
+	ScreenHelper.manual_scale += 1
+
+
+func _on_world_scale_changed()->void:
+	adjust_world_scale.value_label.text = str(ScreenHelper.get_integer_scale())
+
 #endregion

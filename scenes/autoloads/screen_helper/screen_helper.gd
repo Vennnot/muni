@@ -4,10 +4,15 @@ signal screen_changed
 signal world_scale_changed
 signal ui_scale_changed
 
-var allow_manual_scaling := false
-var manual_scale := 1 :
+var allow_manual_scaling := false :
 	set(value):
-		manual_scale = clampi(value, 1, 10)
+		allow_manual_scaling = value
+		if not allow_manual_scaling:
+			manual_scale = get_integer_scale()
+		world_scale_changed.emit()
+var manual_scale := 0 :
+	set(value):
+		manual_scale = clampi(value, 1, 5)
 		world_scale_changed.emit()
 
 var world_size := Vector2(640,360)
@@ -19,6 +24,9 @@ var world_scale: Vector2 = _calc_scaling():
 			return
 		world_scale = value
 		world_scale_changed.emit()
+
+func _ready() -> void:
+	manual_scale = get_integer_scale()
 
 
 func _calc_scaling() -> Vector2:
