@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://djqerxkorvr5s" path="res://scenes/ui/ui_containers/settings_container/settings_container.gd" id="1_nbwgt"]
 [ext_resource type="PackedScene" uid="uid://d1xavif0xffua" path="res://scenes/ui/ui_containers/settings_container/adjustable_values_container/adjust_value_container.tscn" id="2_08etd"]
+[ext_resource type="PackedScene" uid="uid://dlltc47lvo7tt" path="res://scenes/ui/ui_texture_button/ui_texture_button.tscn" id="3_qd6ca"]
+[ext_resource type="Texture2D" uid="uid://c5twk2og3h0ps" path="res://assets/kenney/tile_0051.png" id="4_3j0ke"]
 
 [node name="SettingsContainer" type="VBoxContainer" unique_id=1348572832]
 visibility_layer = 4
@@ -37,16 +39,16 @@ layout_mode = 2
 
 [node name="EnableScaleLabel" type="Label" parent="WorldScalingContainer/VBoxContainer" unique_id=480955351]
 visibility_layer = 4
+texture_filter = 2
 layout_mode = 2
 text = "enable scale"
 
-[node name="ScaleCheckBox" type="CheckBox" parent="WorldScalingContainer/VBoxContainer" unique_id=1262363709]
+[node name="ToggleScale" parent="WorldScalingContainer/VBoxContainer" unique_id=807709623 instance=ExtResource("3_qd6ca")]
 unique_name_in_owner = true
-visibility_layer = 4
+texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-icon_alignment = 1
+toggle_mode = true
+texture_normal = ExtResource("4_3j0ke")
 
 [node name="Label" type="Label" parent="WorldScalingContainer" unique_id=220140023]
 visibility_layer = 4

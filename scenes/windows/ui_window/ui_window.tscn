@@ -12,7 +12,6 @@ script = ExtResource("2_io2lv")
 
 [node name="UIMain" parent="." index="0" unique_id=444876694 instance=ExtResource("3_io2lv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 40)
 
 [node name="UICamera" parent="UIMain" index="1" unique_id=621360633 node_paths=PackedStringArray("ui") instance=ExtResource("4_io2lv")]
 unique_name_in_owner = true

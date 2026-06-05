@@ -25,15 +25,18 @@ layout_mode = 2
 
 [node name="SettingsButton" parent="DivideContainer/ButtonsContainer" unique_id=807709623 instance=ExtResource("2_ywl5k")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("3_667a8")
 
 [node name="DraggableButton" parent="DivideContainer/ButtonsContainer" unique_id=901005293 instance=ExtResource("4_d45k6")]
+texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("5_d45k6")
 
 [node name="CloseButton" parent="DivideContainer/ButtonsContainer" unique_id=1774331460 instance=ExtResource("2_ywl5k")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("4_hd16k")
 

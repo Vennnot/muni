@@ -8,6 +8,7 @@ var screen_position : Vector2 = Vector2(-1,-1)
 
 
 func _ready() -> void:
+	Global.ui_scale_changed.connect(_on_ui_scale_changed)
 	if current_screen == -1:
 		current_screen = DisplayServer.get_primary_screen()
 	if screen_position == Vector2(-1,-1):
@@ -16,6 +17,17 @@ func _ready() -> void:
 
 func _set_window(w:Window)->void:
 	window = w
+	_update_window()
+
+
+func _on_ui_scale_changed(_scale:int)->void:
+	await get_tree().process_frame
+	_update_window()
+
+
+func _update_window()->void:
+	if not window:
+		return
 	window.current_screen = ScreenHelper.current_screen
 	window.min_size = ui.size * Vector2(zoom)
 	window.size = window.min_size
