@@ -7,6 +7,7 @@ const DISPLAY: String = "display"
 const SCREEN: String = "screen"
 const WORLD_SCALE: String = "world_scale"
 const UI_SCALE: String = "ui_scale"
+const UI_POS: String = "ui_pos"
 
 var _config: ConfigFile = ConfigFile.new()
 
@@ -20,6 +21,8 @@ func _initialize() -> void:
 	_config.set_value(DISPLAY, SCREEN, 0)
 	_config.set_value(DISPLAY, WORLD_SCALE, 0)
 	_config.set_value(DISPLAY, UI_SCALE, 1)
+	_config.set_value(DISPLAY, UI_POS+"toggle_button", Vector2.INF)
+	_config.set_value(DISPLAY, UI_POS+"ui_main", Vector2.INF)
 	_config.save(SAVE_PATH)
 
 
@@ -67,3 +70,12 @@ func _on_world_scaling_changed()->void:
 		scale = ScreenHelper.manual_scale
 	_config.set_value(DISPLAY, WORLD_SCALE, scale)
 	_config.save(SAVE_PATH)
+
+
+func _window_position_changed(pos:Vector2,win_name:String)->void:
+	_config.set_value(DISPLAY, UI_POS+win_name, pos)
+	_config.save(SAVE_PATH)
+
+
+func get_window_pos(win_name:String)->Vector2:
+	return _config.get_value(DISPLAY, UI_POS+win_name, Vector2.INF)

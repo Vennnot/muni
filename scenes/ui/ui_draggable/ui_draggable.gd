@@ -12,7 +12,10 @@ func _on_gui_input(event: InputEvent) -> void:
 		var mb := event as InputEventMouseButton
 		if mb.button_index == MOUSE_BUTTON_LEFT:
 			_dragging = mb.pressed
+			if not mb.pressed:
+				Global.settings_manager._window_position_changed(get_window().position,get_window().window_name)
 			_drag_offset = get_window().position - Vector2i(DisplayServer.mouse_get_position())
 
 	if event is InputEventMouseMotion and _dragging:
 		get_window().position = Vector2i(DisplayServer.mouse_get_position()) + _drag_offset
+		

@@ -9,6 +9,7 @@
 canvas_item_default_texture_filter = 1
 canvas_cull_mask = 4294966276
 script = ExtResource("2_io2lv")
+window_name = "ui_main"
 
 [node name="UIMain" parent="." index="0" unique_id=444876694 instance=ExtResource("3_io2lv")]
 unique_name_in_owner = true

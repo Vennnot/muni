@@ -9,6 +9,7 @@
 canvas_item_default_texture_filter = 1
 canvas_cull_mask = 4294966276
 script = ExtResource("2_4yubp")
+window_name = "toggle_button"
 
 [node name="UIToggleButton" parent="." index="0" unique_id=1949444385 instance=ExtResource("3_6enrp")]
 unique_name_in_owner = true

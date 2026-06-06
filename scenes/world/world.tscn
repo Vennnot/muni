@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dv5mvvixgiwnn" path="res://scenes/world/world.gd" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://bb6pw5u1unwoy" path="res://scenes/world/muni/muni.tscn" id="2_1fp7r"]
 [ext_resource type="PackedScene" uid="uid://cqdd86fsdgij0" path="res://scenes/components/windowed_camera/windowed_camera.tscn" id="3_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://bes0wqlqtdrv2" path="res://scenes/world/managers/mining_manager/mining_manager.tscn" id="4_6m72w"]
 
 [node name="World" type="Node2D" unique_id=268146803]
 visibility_layer = 3
@@ -54,3 +55,7 @@ position = Vector2(8, 352)
 [node name="MuniCamera" parent="Muni" unique_id=621360633 instance=ExtResource("3_1fp7r")]
 unique_name_in_owner = true
 visibility_layer = 2
+
+[node name="Managers" type="Node2D" parent="." unique_id=1000485266]
+
+[node name="MiningManager" parent="Managers" unique_id=708119530 instance=ExtResource("4_6m72w")]

@@ -1,0 +1,2 @@
+class_name MiningManager
+extends Node2D

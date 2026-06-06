@@ -1,6 +1,7 @@
 class_name UIWindow
 extends Window
 
+@export var window_name : String
 @onready var camera: UICamera = %UICamera
 var ui : Control
 

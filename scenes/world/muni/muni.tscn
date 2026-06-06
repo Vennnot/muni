@@ -5,9 +5,10 @@
 
 [node name="Muni" type="Node2D" unique_id=126529545]
 visibility_layer = 2
-z_index = 1
+z_index = -5
 script = ExtResource("1_lpbwq")
 
-[node name="Tile0005" type="Sprite2D" parent="." unique_id=710081397]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=710081397]
+unique_name_in_owner = true
 visibility_layer = 2
 texture = ExtResource("2_01g64")

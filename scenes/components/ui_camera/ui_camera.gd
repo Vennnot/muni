@@ -19,7 +19,13 @@ func _set_window(w:Window)->void:
 	window = w
 	_update_window()
 	var screen_size: Vector2 = DisplayServer.screen_get_size(current_screen)
-	window.position = DisplayServer.screen_get_position(current_screen) + Vector2i((screen_size - Vector2(window.size)) / 2.0)
+	var pos := Global.settings_manager.get_window_pos(window.window_name)
+	print(window.window_name)
+	print(pos)
+	if pos != Vector2.INF:
+		window.position = pos
+	else:
+		window.position = DisplayServer.screen_get_position(current_screen) + Vector2i((screen_size - Vector2(window.size)) / 2.0)
 	ScreenHelper.ui_scale = ScreenHelper.ui_scale
 
 
@@ -29,9 +35,13 @@ func _on_ui_scale_changed(_scale: float) -> void:
 	var screen_size: Vector2 = DisplayServer.screen_get_size(current_screen)
 	var screen_origin: Vector2 = DisplayServer.screen_get_position(current_screen)
 	var relative: Vector2 = (Vector2(window.position) - screen_origin) / screen_size
+	var saved_pos := Global.settings_manager.get_window_pos(window.window_name)
 	await get_tree().process_frame
 	_update_window()
-	window.position = Vector2i(screen_origin + relative * screen_size)
+	if saved_pos != Vector2.INF:
+		window.position = Vector2i(saved_pos)
+	else:
+		window.position = Vector2i(screen_origin + relative * screen_size)
 
 
 func _update_window()->void:

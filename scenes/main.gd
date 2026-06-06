@@ -6,7 +6,8 @@ const WORLD :=preload("uid://dc38vkwwx70q1")
 const UI_WINDOW = preload("uid://122tqjcnn7wr")
 const TOGGLE_BUTTON_WINDOW = preload("uid://botyc2rllbsx6")
 
-@export_range(0, 19) var player_visibility_layer: int = 2
+@export_range(0, 19) var ui_visibility_layer: int = 2
+@export_range(0, 19) var player_visibility_layer: int = 1
 @export_range(0, 19) var world_visibility_layer: int = 0
 
 var main_window: Window
@@ -20,16 +21,9 @@ func _ready():
 	_set_culling_masks()
 	set_physics_process(true)
 	
-	var obj_0 :ObjectWindow= _create_window()
-	var obj_1 :ObjectWindow= _create_window()
-	var obj_2 :ObjectWindow= _create_window()
+
 	var ui_button : UIWindow = _create_toggle_button_window()
 	var ui :UIWindow= _create_UI_window()
-	obj_0.world_object.global_position = Vector2(8,8)
-	obj_1.world_object.global_position = Vector2(632,352)
-	obj_2.world_object.global_position = Vector2(632,8)
-	#await get_tree().create_timer(1).timeout
-	#ScreenHelper.set_screen(2)
 
 func _create_window()->ObjectWindow:
 	var object_window := OBJECT_WINDOW.instantiate()
@@ -52,9 +46,11 @@ func _create_toggle_button_window()->UIWindow:
 	ui_window.position = DisplayServer.screen_get_position(ui_window.camera.current_screen) + Vector2i(screen_size) - Vector2i(ui_window.size)
 	return ui_window
 
+
 func _set_culling_masks()->void:
 	main_window.set_canvas_cull_mask_bit(player_visibility_layer, true)
 	main_window.set_canvas_cull_mask_bit(world_visibility_layer, false)
+	main_window.set_canvas_cull_mask_bit(ui_visibility_layer, false)
 
 
 func _spawn_world()->void:

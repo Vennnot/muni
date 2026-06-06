@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bes0wqlqtdrv2"]
+
+[ext_resource type="Script" uid="uid://cbc7drl1q3qrg" path="res://scenes/world/managers/mining_manager/mining_manager.gd" id="1_rgywy"]
+
+[node name="MiningManager" type="Node2D" unique_id=708119530]
+script = ExtResource("1_rgywy")

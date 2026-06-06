@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2nbfffmx3als"]
+
+[ext_resource type="Script" uid="uid://berrt2isnosc5" path="res://scenes/world/objects/gathering_node/gathering_node.gd" id="1_byndy"]
+[ext_resource type="Texture2D" uid="uid://x3iama3m0h5w" path="res://assets/kenney/tile_0029.png" id="2_7ocoi"]
+
+[node name="GatheringNode" type="Node2D" unique_id=1221375234]
+script = ExtResource("1_byndy")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1462723994]
+texture = ExtResource("2_7ocoi")
