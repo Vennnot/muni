@@ -20,8 +20,6 @@ func _set_window(w:Window)->void:
 	_update_window()
 	var screen_size: Vector2 = DisplayServer.screen_get_size(current_screen)
 	var pos := Global.settings_manager.get_window_pos(window.window_name)
-	print(window.window_name)
-	print(pos)
 	if pos != Vector2.INF:
 		window.position = pos
 	else:

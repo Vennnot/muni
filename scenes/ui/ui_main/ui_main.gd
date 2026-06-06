@@ -14,7 +14,6 @@ func _ready() -> void:
 	close_button.pressed.connect(func():get_tree().quit())
 	settings_button.pressed.connect(_on_settings_button_pressed)
 
-
 func set_ui_scale(s: float) -> void:
 	ScreenHelper.ui_scale = s
 
@@ -25,7 +24,10 @@ func _on_scale_changed(s:float)->void:
 
 func _on_ui_toggled(is_open:bool)->void:
 	visible = is_open
-
+	if visible:
+		get_window().visible = true
+	else:
+		get_window().visible = false
 
 func _on_settings_button_pressed()->void:
 	hide_containers()
