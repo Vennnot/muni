@@ -2,17 +2,28 @@ class_name UIMain
 extends Control
 
 @onready var close_button: UITextureButton = %CloseButton
+
 @onready var settings_button: UITextureButton = %SettingsButton
-
-
 @onready var settings_container: VBoxContainer = %SettingsContainer
+
+@onready var inventory_button: UITextureButton = %InventoryButton
+@onready var inventory_container: InventoryContainer = %InventoryContainer
+
+@onready var buttons_and_containers: Dictionary = {
+	settings_button: settings_container,
+	inventory_button: inventory_container,
+}
+
+#TODO make dragging button also toggle
 
 func _ready() -> void:
 	_store_base_values(self)
 	Global.ui_toggled.connect(_on_ui_toggled)
 	ScreenHelper.ui_scale_changed.connect(_on_scale_changed)
 	close_button.pressed.connect(func():get_tree().quit())
-	settings_button.pressed.connect(_on_settings_button_pressed)
+	for button: TextureButton in buttons_and_containers:
+		button.pressed.connect(_show_container.bind(buttons_and_containers[button]))
+
 
 func set_ui_scale(s: float) -> void:
 	ScreenHelper.ui_scale = s
@@ -29,9 +40,11 @@ func _on_ui_toggled(is_open:bool)->void:
 	else:
 		get_window().visible = false
 
-func _on_settings_button_pressed()->void:
-	hide_containers()
-	settings_container.show()
+
+func _show_container(container: Control) -> void:
+	for c: Control in buttons_and_containers.values():
+		c.hide()
+	container.show()
 
 
 func hide_containers()->void:

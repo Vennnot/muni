@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pa5g6hn01gow"]
+
+[ext_resource type="Script" uid="uid://31jm0s5wnnrl" path="res://scenes/ui/ui_containers/inventory_container/inventory_container.gd" id="1_m8jy5"]
+
+[node name="InventoryContainer" type="VBoxContainer" unique_id=1348572832]
+visibility_layer = 4
+script = ExtResource("1_m8jy5")
+
+[node name="Label" type="Label" parent="." unique_id=335989049]
+visibility_layer = 4
+layout_mode = 2
+text = "inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1769412473]
+visibility_layer = 4
+layout_mode = 2
+text = "inventory"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwb2esdt45yy8" path="res://scenes/world/objects/world_object.tscn" id="3_rxla5"]
 
 [node name="ObjectWindow" unique_id=2074263248 instance=ExtResource("1_ru4tu")]
+unfocusable = true
 script = ExtResource("2_rxla5")
 
 [node name="WorldObject" parent="." index="0" unique_id=636761566 instance=ExtResource("3_rxla5")]
