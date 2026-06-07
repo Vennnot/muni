@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceGroup" format=3 uid="uid://b6eto0fe3nu3p"]
+
+[ext_resource type="Script" uid="uid://bwxel3p6l31i7" path="res://addons/godot_resource_groups/resource_group.gd" id="1_lds3h"]
+
+[resource]
+script = ExtResource("1_lds3h")
+base_folder = "res://data/resources/items"
+includes = Array[String](["gatherable/*.tres", "craftable/*.tres", "upgradeable/*.tres"])
+excludes = Array[String](["all_items.tres"])
+paths = Array[String](["res://data/resources/items/gatherable/stone.tres"])
+metadata/_custom_type_script = "uid://bwxel3p6l31i7"

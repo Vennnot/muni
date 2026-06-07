@@ -25,6 +25,12 @@ func create_new_object(scene:PackedScene=GATHERING_NODE)->Node2D:
 	return node
 
 
+func create_new_gathering_node(item:GatherableItem)->Node2D:
+	var gathering_node : GatheringNode = create_new_object()
+	gathering_node.setup(item)
+	return gathering_node
+
+
 func _assign_random_x(node: Node2D) -> Node2D:
 	var rect :Rect2= node.get_sprite_rect()
 	node.position.x = randf_range(rect.size.x / 2.0, ScreenHelper.world_size.x - rect.size.x / 2.0)
@@ -45,4 +51,10 @@ func _on_target_requested() -> void:
 func _on_node_exhausted(node:Node2D)->void:
 	world_objects.erase(node)
 	while world_objects.size()<2:
-		create_new_object()
+		var item := _get_gathering_resource()
+		if item:
+			create_new_gathering_node(item)
+
+
+func _get_gathering_resource()->GatherableItem:
+	return RDB.get_gatherable_item()

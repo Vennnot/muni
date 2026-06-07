@@ -1,0 +1,7 @@
+class_name UpgradeableItem
+extends Item
+
+
+#FIXME Nested Dictionary[level:int,Dictionary[id:int,amount:int]
+#where do I save the stats increase
+@export var ingredients_per_level : Dictionary

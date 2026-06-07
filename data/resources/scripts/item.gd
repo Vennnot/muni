@@ -1,15 +1,15 @@
 class_name Item
 extends Resource
 
-enum TYPE {gatherable, craftable, upgradeable}
 enum USE {ingredient, consumable, equippable, decoration}
 
-@export var id : int = -1
+@export var id : String = ""
 @export var texture : Texture
 
 @export_category("Game Information")
 @export var value : int = 0
+@export var location : Global.LOCATION
+@export var skill : Global.SKILL
 
 @export_group("Tags","tags_")
-@export var tags_type : Array[String]
-@export var tags_use : Array[String]
+@export var tags_use : Array[USE]

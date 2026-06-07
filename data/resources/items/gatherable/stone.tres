@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GatherableItem" format=3 uid="uid://cn4tkehlp2ur3"]
+
+[ext_resource type="Texture2D" uid="uid://dvg8lkw0is4ph" path="res://assets/kenney/tile_0061.png" id="1_jfptg"]
+[ext_resource type="Script" uid="uid://dte6o6h28godj" path="res://data/resources/scripts/item/type/gatherable_item.gd" id="1_w4ylw"]
+[ext_resource type="Texture2D" uid="uid://j5vkeep5irhc" path="res://assets/kamos/[32]-Iconset-Starter_Pack_18.png" id="3_nd6q8"]
+
+[resource]
+script = ExtResource("1_w4ylw")
+node_texture = ExtResource("1_jfptg")
+id = "stone"
+texture = ExtResource("3_nd6q8")
+location = 1
+skill = 1
+metadata/_custom_type_script = "uid://dte6o6h28godj"

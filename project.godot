@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ScreenHelper="*uid://b8cvmhhnf3n0s"
 EventBus="*uid://ct2lw1yhklyay"
 Global="*uid://ckxmy8k7d7lmx"
+RDB="*uid://cbjrtqh7aibav"
 
 [debug]
 
@@ -45,14 +46,23 @@ window/size/no_focus=true
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/yard/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "purple",
 "res://data/": "yellow",
 "res://scenes/": "green",
 "res://scripts/": "red"
 }
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [input]
 

@@ -5,10 +5,12 @@ signal exhausted
 
 @onready var sprite: Sprite2D = $Sprite
 
+var item : GatherableItem
 var muni : Muni
 
-func setup()->void:
-	pass
+func setup(i:GatherableItem)->void:
+	item = i
+	sprite.texture = item.node_texture
 
 
 func get_sprite_rect()->Rect2:
@@ -16,7 +18,7 @@ func get_sprite_rect()->Rect2:
 
 
 func interact()->void:
-	Global.game_manager.inventory.add(1,1)
+	Global.game_manager.inventory.add(item.id,1)
 	despawn()
 
 
