@@ -10,7 +10,6 @@ var upgradeable_items : Array[UpgradeableItem]
 
 func _ready() -> void:
 	ALL_ITEMS.load_all_into(all_items)
-	print(all_items)
 	_sort_items()
 
 func _sort_items() -> void:
@@ -28,6 +27,10 @@ func get_item(type: Script) -> Item:
 		GatherableItem:
 			return get_gatherable_item()
 	return null
+
+
+func get_item_by_id(id: String) -> Item:
+	return all_items.filter(func(i: Item) -> bool: return i.id == id).front()
 
 
 func get_gatherable_item() -> GatherableItem:

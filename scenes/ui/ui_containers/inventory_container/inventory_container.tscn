@@ -13,9 +13,6 @@ text = "inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=1769412473]
-visibility_layer = 4
+[node name="ItemContainer" type="GridContainer" parent="." unique_id=1766375471]
+unique_name_in_owner = true
 layout_mode = 2
-text = "inventory"
-horizontal_alignment = 1
-vertical_alignment = 1

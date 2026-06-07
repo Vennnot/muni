@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://0npo73sw1xri"]
+
+[ext_resource type="Script" uid="uid://80y1e3bvy47b" path="res://scenes/ui/ui_containers/inventory_container/item_container/item_container.gd" id="1_a7v5x"]
+[ext_resource type="Texture2D" uid="uid://cf37lyjwtcume" path="res://assets/kamos/[32]-Iconset-Starter_Pack_02.png" id="2_jf5to"]
+
+[node name="ItemContainer" type="MarginContainer" unique_id=1123064879]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_a7v5x")
+
+[node name="ItemTexture" type="TextureRect" parent="." unique_id=1138297721]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_jf5to")
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="ItemTexture" unique_id=660903675]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 43.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
