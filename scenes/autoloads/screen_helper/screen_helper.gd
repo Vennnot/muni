@@ -14,11 +14,11 @@ var allow_manual_scaling := false :
 		manual_scaling_changed.emit()
 var manual_scale := 0 :
 	set(value):
-		manual_scale = clampi(value, 1, 5)
+		manual_scale = clampi(value, 1, 7)
 		world_scale_changed.emit()
-var ui_scale : float = 1 :
+var ui_scale : float = 3 :
 	set(value):
-		ui_scale = clampf(value,1,3)
+		ui_scale = clampf(value,1,5)
 		ui_scale_changed.emit(ui_scale)
 
 var world_size := Vector2(640,360)

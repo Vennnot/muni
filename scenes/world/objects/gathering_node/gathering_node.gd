@@ -11,6 +11,7 @@ var muni : Muni
 func setup(i:GatherableItem)->void:
 	item = i
 	sprite.texture = item.node_texture
+	sprite.visible = true
 
 
 func get_sprite_rect()->Rect2:
